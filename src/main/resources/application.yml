@@ -1,6 +1,11 @@
 
 
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/memo
+    username: root
+    password: Pa$$w0rd
   mvc:
     static-path-pattern: /static/**
     view:
@@ -8,3 +13,6 @@ spring:
       suffix: .jsp
   application:
     name: Memo
+
+mybatis:
+  mapper-locations: mappers/*Mapper.xml
