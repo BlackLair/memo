@@ -68,7 +68,7 @@
 				, data:{"loginId":id, "password":password, "name":name, "email":email}
 				, success:function(data){
 					if(data.result == "success"){
-						windows.href = "/user/login-view";
+						location.href = "/user/login-view";
 					}else{
 						alert("회원가입 실패");
 					}
