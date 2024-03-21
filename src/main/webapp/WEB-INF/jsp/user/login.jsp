@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<jsp:include page="/WEB-INF/jsp/common/memo-header.jsp" />
+		<c:import url="/WEB-INF/jsp/include/memo-header.jsp" />
 		<section class="contents d-flex justify-content-center align-items-center">
 			<div class="user-box">
 				<input id="idInput" type="text" class="form-control" placeholder="Username">
@@ -19,7 +20,7 @@
 				<a class="text-center d-block mt-4" href="/user/join-view">회원가입</a>
 			</div>
 		</section>
-		<jsp:include page="/WEB-INF/jsp/common/memo-footer.jsp" />
+		<c:import url="/WEB-INF/jsp/include/memo-footer.jsp" />
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

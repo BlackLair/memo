@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<jsp:include page="/WEB-INF/jsp/common/memo-header-loggedIn.jsp" />
+		<c:import url="/WEB-INF/jsp/include/memo-header-loggedIn.jsp" />
 		<section class="contents d-flex align-items-center flex-column">
 		<div class="h1 text-center mt-5"><b>메모 입력</b></div>
 			<div class="contents-box">
@@ -29,8 +30,7 @@
 				</div>
 			</div>			
 		</section>
-		<jsp:include page="/WEB-INF/jsp/common/memo-footer.jsp" />
-		
+		<c:import url="/WEB-INF/jsp/include/memo-footer.jsp" />
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
