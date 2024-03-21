@@ -20,4 +20,9 @@ public class PostController {
 		
 		return "post/detailPost";
 	}
+	
+	@GetMapping("/list-view")
+	public String listView() {
+		return "post/listPost";
+	}
 }
