@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kuwon.memo.user.domain.User;
 import com.kuwon.memo.user.service.UserService;
 
 @RequestMapping("/user")
@@ -29,6 +30,23 @@ public class UserRestController {
 		if(count == 1) {  	// 회원가입 성공 시
 			resultMap.put("result", "success");
 		}else {				// 회원가입 실패 시
+			resultMap.put("result", "failure");
+		}
+		return resultMap;
+	}
+	
+	// 로그인 요청
+	@PostMapping("/login")
+	public Map<String, String> login(
+			@RequestParam("loginId")String loginId
+			, @RequestParam("password")String password){
+		User user = userService.getUserByLoginIdAndPassword(loginId, password);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(user != null) { // 로그인 성공
+			resultMap.put("result", "success");
+		}else { // 로그인 실패
 			resultMap.put("result", "failure");
 		}
 		return resultMap;
