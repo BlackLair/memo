@@ -10,9 +10,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<header class="d-flex align-items-center">
-			<h1 class="m-5">Memo</h1>
-		</header>
+		<jsp:include page="/WEB-INF/jsp/common/memo-header.jsp" />
 		<section class="contents d-flex justify-content-center">
 			<div class="user-box my-5">
 				<h2 class="text-center mt-4">회원가입</h2>
@@ -24,11 +22,7 @@
 				<button type="button" class="form-control btn-secondary mt-3" id="joinBtn">가입</button>
 			</div>
 		</section>
-		<footer class="d-flex justify-content-center align-items-center">
-			<div>
-				Copyright 2024. Memo All rights reserved.
-			</div>
-		</footer>
+		<jsp:include page="/WEB-INF/jsp/common/memo-footer.jsp" />
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
