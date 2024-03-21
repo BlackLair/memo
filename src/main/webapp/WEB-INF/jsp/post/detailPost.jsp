@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<c:import url="/WEB-INF/jsp/include/memo-header-loggedIn.jsp" />
+		<c:import url="/WEB-INF/jsp/include/memo-header.jsp" />
 		<section class="contents d-flex align-items-center flex-column">
 		<div class="h1 text-center mt-5"><b>메모 입력</b></div>
 			<div class="contents-box">
