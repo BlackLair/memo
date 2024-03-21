@@ -11,15 +11,15 @@
 <body>
 	<div id="wrap">
 		<jsp:include page="/WEB-INF/jsp/common/memo-header-loggedIn.jsp" />
-		<section class="contents d-flex justify-content-center align-items-center">
+		<section class="contents d-flex align-items-center flex-column">
+		<div class="h1 text-center mt-5"><b>메모 입력</b></div>
 			<div class="contents-box">
-				<div class="display-4 text-center"><b>메모 입력</b></div>
 				<div class="d-flex align-items-center mt-4">
 					<div class="h3 col-2"><b>제목 :</b></div>
 					<input type="text" class="form-control">
 				</div>
 				<textarea class="form-control h-fixed-textarea mt-3"></textarea>
-				<img width="100%" alt="메모 이미지" src="#">
+				<img class="mt-3" width="100%" alt="메모 이미지" src="#">
 				<div class="d-flex justify-content-between mt-3">
 					<div class="d-flex justify-content-between col-5">
 						<button type="button" class="btn btn-dark col-5">목록으로</button>
