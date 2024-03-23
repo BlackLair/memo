@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,15 +25,18 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>첫 메모</td>
-							<td>2024-03-21 11:24:12</td>
-						</tr>
+						<c:forEach var="post" items="${postList }" varStatus="status">
+							<tr>
+								<td>${post.id }</td>
+								<td><a href="/post/detail-view?id=${post.id }">${post.title }</a></td>
+								
+								<td><fmt:formatDate value="${post.createdAt }" pattern="yyyy-MM-dd HH:mm" /></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-end">
-					<button type="button" class="btn btn-primary mt-5">글쓰기</button>
+					<button onClick="location.href = '/post/create-view'" type="button" class="btn btn-secondary mt-5">글쓰기</button>
 				</div>
 			</div>			
 		</section>

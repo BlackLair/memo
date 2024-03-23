@@ -17,16 +17,16 @@
 			<div class="contents-box">
 				<div class="d-flex align-items-center mt-4">
 					<div class="h3 col-2"><b>제목 :</b></div>
-					<input type="text" class="form-control">
+					<input id="titleInput" type="text" class="form-control" value="${post.title }">
 				</div>
-				<textarea class="form-control h-fixed-textarea mt-3"></textarea>
-				<img class="mt-3" width="100%" alt="메모 이미지" src="#">
+				<textarea id="contentsTextarea" class="form-control h-fixed-textarea mt-3">${post.contents }</textarea>
+				<img id="postImg" class="mt-3" width="100%" alt="메모 이미지" src="#">
 				<div class="d-flex justify-content-between mt-3">
 					<div class="d-flex justify-content-between col-5">
-						<button type="button" class="btn btn-dark col-5">목록으로</button>
-						<button type="button" class="btn btn-danger col-5">삭제</button>
+						<button onClick="location.href='/post/list-view'" type="button" class="btn btn-dark col-5">목록으로</button>
+						<button id="deleteBtn" type="button" class="btn btn-danger col-5">삭제</button>
 					</div>
-					<button type="button" class="btn btn-dark col-2">수정</button>
+					<button id="saveBtn" type="button" class="btn btn-dark col-2">수정</button>
 				</div>
 			</div>			
 		</section>

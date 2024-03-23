@@ -17,13 +17,13 @@
 			<div class="contents-box">
 				<div class="d-flex align-items-center mt-4">
 					<div class="h3 col-2"><b>제목 :</b></div>
-					<input type="text" class="form-control" placeholder="제목을 입력해주세요.">
+					<input id="titleInput" type="text" class="form-control" placeholder="제목을 입력해주세요.">
 				</div>
-				<textarea class="form-control h-fixed-textarea mt-3" placeholder="내용을 입력해주세요."></textarea>
-				<input type="file" class="form-control mt-3">
+				<textarea id="contentsTextarea" class="form-control h-fixed-textarea mt-3" placeholder="내용을 입력해주세요."></textarea>
+				<input id="fileInput" type="file" class="form-control mt-3">
 				<div class="d-flex justify-content-between mt-3">
-					<button type="button" class="btn btn-dark col-2">목록으로</button>
-					<button type="button" class="btn btn-dark col-2">저장</button>
+					<button onClick="location.href='/post/list-view'" type="button" class="btn btn-dark col-2">목록으로</button>
+					<button id="saveBtn" type="button" class="btn btn-dark col-2">저장</button>
 				</div>
 			</div>			
 		</section>
@@ -35,7 +35,32 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function(){
-
+		$("#saveBtn").on("click", function(){
+			let title = $("#titleInput").val();
+			let contents = $("#contentsTextarea").val();
+			if(title == ""){
+				alert("제목을 입력하세요.");
+				return;
+			}else if(contents == ""){
+				alert("내용을 입력하세요.");
+				return;
+			}
+			$.ajax({
+				type:"post"
+				, url:"/post/create"
+				, data:{"title":title, "contents":contents}
+				, success:function(data){
+					if(data.result == "success"){
+						location.href = "/post/list-view";
+					}else{
+						alert("메모 작성 실패");
+					}
+				}
+				, error:function(){
+					alert("메모 작성 에러");
+				}
+			});
+		});
 	});
 </script>
 </body>
