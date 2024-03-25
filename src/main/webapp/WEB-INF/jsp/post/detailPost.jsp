@@ -20,7 +20,9 @@
 					<input id="titleInput" type="text" class="form-control" value="${post.title }">
 				</div>
 				<textarea id="contentsTextarea" class="form-control h-fixed-textarea mt-3">${post.contents }</textarea>
-				<img id="postImg" class="mt-3" width="100%" alt="메모 이미지" src="#">
+				<c:if test="${not empty post.imagePath }">
+				<img id="postImg" class="mt-3" width="100%" alt="메모 이미지" src="${post.imagePath }">
+				</c:if>
 				<div class="d-flex justify-content-between mt-3">
 					<div class="d-flex justify-content-between col-5">
 						<button onClick="location.href='/post/list-view'" type="button" class="btn btn-dark col-5">목록으로</button>

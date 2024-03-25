@@ -38,6 +38,7 @@
 		$("#saveBtn").on("click", function(){
 			let title = $("#titleInput").val();
 			let contents = $("#contentsTextarea").val();
+			let file = $("#fileInput")[0].files[0];  //   files[0] : 0번째 파일
 			if(title == ""){
 				alert("제목을 입력하세요.");
 				return;
@@ -45,10 +46,18 @@
 				alert("내용을 입력하세요.");
 				return;
 			}
+			
+			let formData = new FormData();  // 파일을 포함한 데이터
+			formData.append("title", title);
+			formData.append("contents", contents);
+			formData.append("imageFile", file);
 			$.ajax({
 				type:"post"
 				, url:"/post/create"
-				, data:{"title":title, "contents":contents}
+				, data:formData
+				, enctype:"multipart/form-data" // 파일 업로드 필수 옵션
+				, processData:false				// 파일 업로드 필수 옵션
+				, contentType:false				// 파일 업로드 필수 옵션
 				, success:function(data){
 					if(data.result == "success"){
 						location.href = "/post/list-view";

@@ -11,8 +11,9 @@ import com.kuwon.memo.post.domain.Post;
 public interface PostRepository {
 	public int insertPost(
 			@Param("userId")int userId
-			,@Param("title") String title
-			,@Param("contents") String contents);
+			, @Param("title") String title
+			, @Param("contents") String contents
+			, @Param("imagePath") String imagePath);
 	
 	public List<Post> selectPostList(@Param("userId") int userId);
 	public Post selectPost(@Param("id") int id);

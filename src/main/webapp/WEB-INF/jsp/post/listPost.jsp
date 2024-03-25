@@ -36,7 +36,7 @@
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-end">
-					<button onClick="location.href = '/post/create-view'" type="button" class="btn btn-secondary mt-5">글쓰기</button>
+					<button onClick="location.href = '/post/create-view'" type="button" class="btn btn-secondary mt-3">글쓰기</button>
 				</div>
 			</div>			
 		</section>
