@@ -29,4 +29,8 @@ public class PostService {
 	public Post getPost(int id) {
 		return postRepository.selectPost(id);
 	}
+	
+	public int updatePost(int id, String title, String contents) {
+		return postRepository.updatePost(id, title, contents);
+	}
 }

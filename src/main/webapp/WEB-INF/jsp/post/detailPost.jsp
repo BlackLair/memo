@@ -13,8 +13,8 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/memo-header.jsp" />
 		<section class="contents d-flex align-items-center flex-column">
-		<div class="h1 text-center mt-5"><b>메모 입력</b></div>
-			<div class="contents-box">
+		<div class="h1 text-center mt-5"><b>메모 보기</b></div>
+			<div class="contents-box" data-post-id="${post.id }" id="contentsDiv" >
 				<div class="d-flex align-items-center mt-4">
 					<div class="h3 col-2"><b>제목 :</b></div>
 					<input id="titleInput" type="text" class="form-control" value="${post.title }">
@@ -40,7 +40,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function(){
-
+		$("#saveBtn").on("click", function(){
+			let title = $("#titleInput").val();
+			let contents = $("#contentsTextarea").val();
+			if(title == ""){
+				alert("제목을 입려갛세요.");
+				return;
+			}
+			if(contents == ""){
+				alert("내용을 입력하세요.");
+				return;
+			}
+			let id = $("#contentsDiv").data("post-id");
+			$.ajax({
+				type:"put"
+				, url:"/post/update"
+				, data:{"id":id, "title":title, "contents":contents}
+				, success:function(data){
+					if(data.result == "success"){
+						location.reload();
+					}else{
+						alert("수정 실패");
+					}
+				}
+				, error:function(){
+					alert("수정 에러");
+				}
+			});
+		});
 	});
 </script>
 </body>

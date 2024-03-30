@@ -53,4 +53,14 @@
   		WHERE
   			`id` = #{id};
   	</select>
+  	<update id="updatePost" parameterType="map">
+  		UPDATE
+  			`post`
+  		SET
+  			`title` = #{title}
+  			, `contents` = #{contents}
+  			, `updatedAt` = now()
+  		WHERE
+  			`id` = #{id};
+  	</update>
   </mapper>
