@@ -40,6 +40,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function(){
+		$("#deleteBtn").on("click", function(){
+			let id = $("#contentsDiv").data("post-id");
+			$.ajax({
+				type:"delete"
+				, url:"/post/delete"
+				, data:{"id":id}
+				, success:function(data){
+					if(data.result == "success"){
+						alert("삭제되었씁니다.");
+						location.href = "/post/list-view";
+					}else{
+						alert("삭제 실패");
+					}
+				}
+				, error:function(){
+					alert("삭제 에러");
+				}
+			});
+		});
+		
 		$("#saveBtn").on("click", function(){
 			let title = $("#titleInput").val();
 			let contents = $("#contentsTextarea").val();

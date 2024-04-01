@@ -33,4 +33,11 @@ public class PostService {
 	public int updatePost(int id, String title, String contents) {
 		return postRepository.updatePost(id, title, contents);
 	}
+	
+	public int deletePost(int id) {
+		Post post = postRepository.selectPost(id);
+		FileManager.removeFile(post.getImagePath());
+		
+		return postRepository.deletePost(id);
+	}
 }

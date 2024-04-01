@@ -20,4 +20,5 @@ public interface PostRepository {
 	public int updatePost(@Param("id") int id
 						, @Param("title") String title
 						, @Param("contents") String contents);
+	public int deletePost(@Param("id")int id);
 }

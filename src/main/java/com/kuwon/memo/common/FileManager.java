@@ -52,4 +52,37 @@ public class FileManager {
 		// url 규칙 : /images/3_23195209/test.png
 		return "/images" + directoryName + "/" + file.getOriginalFilename();
 	}
+	
+	// 파일 삭제
+	public static boolean removeFile(String filePath){
+		if(filePath == null) {
+			return false;
+		}
+		String fullFilePath = FILE_UPLOAD_PATH + filePath.replace("/images", "");
+		
+		Path path = Paths.get(fullFilePath);
+		
+		// 파일 존재 여부 확인
+		if(Files.exists(path)) {
+			try {
+				Files.delete(path); // 파일 삭제
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			}
+			
+		}
+		Path dirPath = path.getParent(); // 파일의 디렉터리 경로 얻음
+		if(Files.exists(dirPath)) {
+			try {
+				Files.delete(dirPath);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
+		
+		return true;
+	}
 }

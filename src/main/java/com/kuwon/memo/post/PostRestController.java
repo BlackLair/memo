@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +54,19 @@ public class PostRestController {
 		int count = postService.updatePost(id,  title,  contents);
 		Map<String, String> resultMap = new HashMap<>();
 		
+		if(count == 1) {
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("result", "failure");
+		}
+		return resultMap;
+	}
+	
+	// 메모 삭제
+	@DeleteMapping("delete")
+	public Map<String, String> deleteMemo(@RequestParam("id") int id){
+		int count = postService.deletePost(id);
+		Map<String, String> resultMap = new HashMap<>();
 		if(count == 1) {
 			resultMap.put("result", "success");
 		}else {
