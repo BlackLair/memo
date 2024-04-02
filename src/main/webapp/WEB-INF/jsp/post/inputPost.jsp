@@ -20,7 +20,7 @@
 					<input id="titleInput" type="text" class="form-control" placeholder="제목을 입력해주세요.">
 				</div>
 				<textarea id="contentsTextarea" class="form-control h-fixed-textarea mt-3" placeholder="내용을 입력해주세요."></textarea>
-				<input id="fileInput" type="file" class="form-control mt-3">
+				<input id="fileInput" type="file" accept="image/*" class="form-control mt-3">
 				<div class="d-flex justify-content-between mt-3">
 					<button onClick="location.href='/post/list-view'" type="button" class="btn btn-dark col-2">목록으로</button>
 					<button id="saveBtn" type="button" class="btn btn-dark col-2">저장</button>
